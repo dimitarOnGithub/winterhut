@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        <title>Winter's Hut</title>
+    {% endif %}
+{% endblock %}
+{% block body %}
+    {% if blog_posts %}
+        {% for post in blog_posts.items %}
+            <article class="blog-article">
+                <a class="article-title" href="#">{{ post.title }}</a>
+                <small class="article-date-posted">{{ post.date_posted.strftime("%Y-%m-%d") }}</small>
+                <p class="article-content">{{ post.content }}</p>
+            </article>
+        {% endfor %}
+    {% else %}
+        <p>Uh, something went wrong :(</p>
+    {% endif %}
+    <section class="author-section">
+        <h3 class="author-section-title">$ whoami</h3>
+        <img class="author-section-avatar" src="static/images/avatar.jpg"">
+        <p class="author-section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar rutrum dui a pulvinar. Integer ultrices pulvinar quam, sed ultricies nunc pretium nec. Pellentesque augue libero, aliquam non pretium a, cursus eu quam. Praesent ut eros orci. Curabitur semper odio ut turpis vulputate, a feugiat felis tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec at odio eu tortor convallis consequat ultricies et purus.</p>
+        <a href="#"><img src="#">LinkedIn</a>
+        <a href="#"><img src="#">GitHub</a>
+        <a href="#"><img src="#">Instagram</a>
+        <a href="#"><img src="#">Spotify</a>
+        <a href="#"><img src="#">Steam</a>
+    </section>
+{% endblock %}

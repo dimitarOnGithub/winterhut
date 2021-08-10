@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel="stylesheet" href="static/main.css">
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
 </head>
 <body>
-
+  <div class="main-container">
+    <div class="header-title">
+      Winter's Hut
+    </div>
+    <nav class="navigation-bar">
+      <div class="nav-left">
+        <a class="nav-btn" href="#">Home</a>
+        <a class="nav-btn" href="#">Blog Posts</a>
+        <a class="nav-btn" href="#">CV</a>
+      </div>
+      <div class="nav-right">
+        <a class="nav-btn" href="#">Login</a>
+      </div>
+    </nav>
+    <div class="content-section">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <div class="footer">
+      <p class="footer-text">No copyright here lol :)</p>
+    </div>
+  </div>
 </body>
 </html>

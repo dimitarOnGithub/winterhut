@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Winter's CV
+    {% endif %}
+{% endblock %}
+{% block body %}
+    <body>
+        <div class="cv-table">
+            <div class="cv-entry">
+                <h2 class="cv-entry-title">Some entry</h2>
+                <h5 class="cv-entry-timespan">1991-2021</h5>
+                <ul class="cv-entry-specifics">
+                    <li>Something</li>
+                    <li>Other thing</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+{% endblock %}
