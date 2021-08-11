@@ -57,8 +57,8 @@ nav a:hover{
   transition-duration: 0.4s;
 }
 
-/* Content Section */
-.content-section {
+/* Home Content Section */
+.home-content {
   display: flex;
   align-items: flex-start;
 }
@@ -104,9 +104,11 @@ nav a:hover{
     flex-grow: 1;
     flex-shrink: 1;
     min-width: 340px;
+    max-width: 340px;
     background: #623B2D;
     padding: 5px;
     margin: 5px;
+    margin-right: 10px;
     box-shadow: 5px 10px 10px #9D6B53;
     border-top: #CD9777;
     border-top-style: ridge;
@@ -121,6 +123,29 @@ nav a:hover{
     border-bottom-style: ridge;
     border-bottom-width: 1px;
 }
+
+.author-section ul {
+  padding-left: 0px;
+}
+
+.author-section ul li {
+  border: 1px solid #8A5A44;
+  margin: 5px;
+  padding: 16px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.author-section ul li a {
+  text-decoration: none;
+}
+
+.author-section ul li:hover {
+  background-color: #8A5A44;
+  transition-duration: 0.4s;
+}
+
 .author-section-title {
     color: #f2e9e4;
 }
@@ -129,8 +154,41 @@ nav a:hover{
     display: block;
 }
 
-.author-section-avatar {
-    border-radius: 100px;
+.author-socials {
+  font-family: 'Norican', cursive;
+  font-size: 40px;
+  line-height: 0px;
+}
+
+/* Pagination */
+.paging {
+  display: block;
+  padding: 5px;
+  margin-top: 15px;
+  margin-bottom: 80px;
+}
+
+.paging .page-selector {
+    border: 1px solid #8A5A44;
+    margin: 5px;
+    padding: 16px 40px;
+    display: inline-block;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.paging .page-selector:hover{
+    background-color: #8A5A44;
+    transition-duration: 0.4s;
+}
+
+.paging .page-selector-left {
+  float: left;
+}
+
+.paging .page-selector-right{
+  float: right;
 }
 
 /* Footer */

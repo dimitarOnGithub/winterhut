@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="static/main.css">
+    <link rel="stylesheet" href="/static/main.css">
 
     <title>
         {% block title %}
@@ -16,9 +16,9 @@
     </div>
     <nav class="navigation-bar">
       <div class="nav-left">
-        <a class="nav-btn" href="#">Home</a>
+        <a class="nav-btn" href="{{ url_for('main.home_page') }}">Home</a>
         <a class="nav-btn" href="#">Blog Posts</a>
-        <a class="nav-btn" href="#">CV</a>
+        <a class="nav-btn" href="{{ url_for('main.cv_page') }}">CV</a>
       </div>
       <div class="nav-right">
         <a class="nav-btn" href="#">Login</a>
