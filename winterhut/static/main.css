@@ -9,6 +9,22 @@ a {
     color: #e6ccb2;
 }
 
+.btn {
+  color: #e6ccb2;
+  background: #462A20;
+  border: 1px solid #8A5A44;
+  padding: 16px 40px;
+  display: inline;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn:hover{
+  background-color: #8A5A44;
+  transition-duration: 0.4s;
+}
+
 /* Main container */
 .main-container {
   background: #462A20;
@@ -43,20 +59,6 @@ nav .nav-left {
 nav .nav-right {
   display:inline-block;
   float: right;
-}
-
-nav a {
-  border: 1px solid #8A5A44;
-  padding: 16px 40px;
-  display: inline;
-  text-align: center;
-  display: inline-block;
-  text-decoration: none;
-}
-
-nav a:hover{
-  background-color: #8A5A44;
-  transition-duration: 0.4s;
 }
 
 /* Home Content Section */
@@ -101,6 +103,10 @@ nav a:hover{
     display: block;
 }
 
+.article-content {
+  white-space: pre-wrap;
+}
+
 /* Author */
 .author-section {
     flex-grow: 1;
@@ -127,19 +133,21 @@ nav a:hover{
 }
 
 .author-section ul {
+  list-style-type: none;
   padding-left: 0px;
 }
 
 .author-section ul li {
-  border: 1px solid #8A5A44;
-  margin: 5px;
-  padding: 16px;
-  display: block;
-  text-align: center;
   text-decoration: none;
 }
 
 .author-section ul li a {
+  background: #623B2D;
+  border: 1px solid #8A5A44;
+  margin: 5px 0px;
+  padding: 16px;
+  display: block;
+  text-align: center;
   text-decoration: none;
 }
 
@@ -167,21 +175,6 @@ nav a:hover{
   display: block;
   padding: 5px;
   overflow: hidden;
-}
-
-.paging .page-selector {
-    border: 1px solid #8A5A44;
-    margin: 5px;
-    padding: 16px 40px;
-    display: inline-block;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-}
-
-.paging .page-selector:hover{
-    background-color: #8A5A44;
-    transition-duration: 0.4s;
 }
 
 .paging .page-selector-left {
@@ -229,4 +222,17 @@ nav a:hover{
   padding: 1%;
   margin: 2% 5%;
   text-align: center;
+}
+
+/* new post page */
+
+.content {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  resize: both;
 }

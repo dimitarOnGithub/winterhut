@@ -3,7 +3,7 @@
     {% if title %}
         {{ title }}
     {% else %}
-        <title>Winter's Hut</title>
+        Winter's Hut
     {% endif %}
 {% endblock %}
 {% block body %}
@@ -11,9 +11,9 @@
     {% if blog_posts %}
         {% for post in blog_posts.items %}
             <article class="blog-article">
-                <a class="article-title" href="#">{{ post.title }}</a>
+                <a class="article-title" href="{{ url_for('posts.view_post_page', post_id=post.id)}}">{{ post.title }}</a>
                 <small class="article-date-posted">{{ post.date_posted.strftime("%Y-%m-%d") }}</small>
-                <p class="article-content">{{ post.content }}</p>
+                <div class="article-content">{{ post.content | safe}}</div>
             </article>
         {% endfor %}
     {% else %}
@@ -24,20 +24,20 @@
         <p class="author-section-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar rutrum dui a pulvinar. Integer ultrices pulvinar quam, sed ultricies nunc pretium nec. Pellentesque augue libero, aliquam non pretium a, cursus eu quam. Praesent ut eros orci. Curabitur semper odio ut turpis vulputate, a feugiat felis tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec at odio eu tortor convallis consequat ultricies et purus.</p>
         <p class="author-socials">.. or catch me at:</p>
         <ul>
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">GitHub</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Spotify</a></li>
-          <li><a href="#">Steam</a></li>
+          <li><a class="btn" href="#">LinkedIn</a></li>
+          <li><a class="btn" href="#">GitHub</a></li>
+          <li><a class="btn" href="#">Instagram</a></li>
+          <li><a class="btn" href="#">Spotify</a></li>
+          <li><a class="btn" href="#">Steam</a></li>
         </ul>
     </section>
   </div>
     <div class="paging">
         {% if blog_posts.has_prev %}
-            <a class="page-selector page-selector-left" href="{{ url_for( 'main.home_page', page=blog_posts.page - 1 ) }}">Previous</a>
+            <a class="btn page-selector-left" href="{{ url_for( 'main.home_page', page=blog_posts.page - 1 ) }}">Previous</a>
         {% endif %}
         {% if blog_posts.has_next %}
-            <a class="page-selector page-selector-right" href="{{ url_for( 'main.home_page', page=blog_posts.page + 1 ) }}">Next</a>
+            <a class="btn page-selector-right" href="{{ url_for( 'main.home_page', page=blog_posts.page + 1 ) }}">Next</a>
         {% endif %}
     </div>
 {% endblock %}

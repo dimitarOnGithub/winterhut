@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Winter's Hut
+    {% endif %}
+{% endblock %}
+{% block body %}
+  <div class="new-post">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset>
+        <h2>New Post</h2>
+        <div>
+          {{ form.title(class="form-field title", placeholder="Title") }}
+        </div>
+        <div>
+          {{ form.content(class="form-field content", placeholder="Post body") }}
+        </div>
+        <div>
+          {{ form.save_as_draft(class="form-field btn") }}
+        </div>
+        <div>
+          {{ form.submit(class="form-field btn") }}
+        </div>
+      </fieldset>
+    </form>
+  </div>
+{% endblock %}

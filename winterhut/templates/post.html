@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Winter's Hut
+    {% endif %}
+{% endblock %}
+{% block body %}
+  <article class="blog-article">
+      <a class="article-title" href="#">{{ post.title }}</a>
+      <small class="article-date-posted">{{ post.date_posted.strftime("%Y-%m-%d") }}</small>
+      <div class="article-content">{{ post.content | safe }}</div>
+  </article>
+{% endblock %}
