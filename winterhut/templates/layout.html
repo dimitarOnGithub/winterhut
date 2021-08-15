@@ -21,10 +21,27 @@
         <a class="nav-btn" href="{{ url_for('main.cv_page') }}">CV</a>
       </div>
       <div class="nav-right">
-        <a class="nav-btn" href="#">Login</a>
+        {% if current_user.is_authenticated %}
+          <a class="nav-btn" href="#">New Post</a>
+          <a class="nav-btn" href="#">New IP Ban</a>
+          <a class="nav-btn" href="#">Logout</a>
+        {% else %}
+          <a class="nav-btn" href="{{ url_for ('users.login_page') }}">Login</a>
+        {% endif %}
       </div>
     </nav>
     <div class="content-section">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <div class="flashed-messages">
+                {% for message in messages %}
+                <div class="flashed-message">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
         {% block body %}
         {% endblock %}
     </div>

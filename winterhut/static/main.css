@@ -12,9 +12,9 @@ a {
 /* Main container */
 .main-container {
   background: #462A20;
-  width: 60%;
-  margin-left: 20%;
-  margin-right: 20%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 0%;
 }
 
@@ -32,10 +32,12 @@ nav {
   border-bottom-style: ridge;
   border-bottom-width: 1px;
   padding: 5px;
+  overflow: hidden;
 }
 
 nav .nav-left {
   display:inline-block;
+  float: left;
 }
 
 nav .nav-right {
@@ -103,8 +105,8 @@ nav a:hover{
 .author-section {
     flex-grow: 1;
     flex-shrink: 1;
-    min-width: 340px;
-    max-width: 340px;
+    min-width: 20%;
+    max-width: 20%;
     background: #623B2D;
     padding: 5px;
     margin: 5px;
@@ -157,15 +159,14 @@ nav a:hover{
 .author-socials {
   font-family: 'Norican', cursive;
   font-size: 40px;
-  line-height: 0px;
+  word-break: break-all;
 }
 
 /* Pagination */
 .paging {
   display: block;
   padding: 5px;
-  margin-top: 15px;
-  margin-bottom: 80px;
+  overflow: hidden;
 }
 
 .paging .page-selector {
@@ -203,4 +204,29 @@ nav a:hover{
     text-align: right;
     font-size: 80%;
     font-style: italic;
+}
+
+
+/* Login Page */
+
+.login-box {
+  margin: 0 auto;
+  width: 30%;
+  padding: 5%;
+  text-align: center;
+}
+
+.login-box .form-field {
+  margin: 1%;
+}
+
+/* flashed messages */
+
+.flashed-messages {
+  border: #CD9777;
+  border-style: ridge;
+  border-width: 1px;
+  padding: 1%;
+  margin: 2% 5%;
+  text-align: center;
 }
