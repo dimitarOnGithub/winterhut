@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Winter's Hut
+    {% endif %}
+{% endblock %}
+{% block body %}
+  <div class="new-ban">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset>
+        <h2>Ban an IP Address</h2>
+        <div>
+          {{ form.ip_address(class="form-field ip-address", placeholder="Enter IP address here") }}
+        </div>
+        <a class="btn" href="{{ url_for('main.home_page') }}">Cancel</a>
+        <div>
+          {{ form.submit(class="form-field btn") }}
+        </div>
+      </fieldset>
+    </form>
+  </div>
+{% endblock %}

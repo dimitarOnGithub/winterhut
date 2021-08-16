@@ -23,7 +23,7 @@
       <div class="nav-right">
         {% if current_user.is_authenticated %}
           <a class="btn" href="{{ url_for('posts.new_post_page') }}">New Post</a>
-          <a class="btn" href="#">New IP Ban</a>
+          <a class="btn" href="{{ url_for('main.ban_ip_page') }}">New IP Ban</a>
           <a class="btn" href="#">Logout</a>
         {% else %}
           <a class="btn" href="{{ url_for ('users.login_page') }}">Login</a>

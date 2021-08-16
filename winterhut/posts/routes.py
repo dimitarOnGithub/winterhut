@@ -21,6 +21,7 @@ def new_post_page():
                         content=form.content.data,
                         is_draft=True,
                         user_id=current_user.id)
+            flash("Post saved as draft successfully.")
         else:
             post = Post(title=form.title.data,
                         content=form.content.data,
@@ -28,6 +29,7 @@ def new_post_page():
                         user_id=current_user.id)
         db.session.add(post)
         db.session.commit()
+        flash("Post created successfully.")
         return redirect(url_for("posts.view_post_page", post_id=post.id))
     return render_template('new_post.html', form=form)
 
