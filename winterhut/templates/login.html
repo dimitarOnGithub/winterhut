@@ -13,7 +13,16 @@
       <fieldset>
         <h2>Login</h2>
         <div class="form-field">
-          {{ form.email(placeholder="e-mail address here :)") }}
+          {% if form.email.errors %}
+            {{ form.email(placeholder="e-mail address here :)") }}
+            <div class="invalid-feedback">
+                {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+          {% else %}
+            {{ form.email(placeholder="e-mail address here :)") }}
+          {% endif %}
         </div>
         <div class="form-field">
           {{ form.password(placeholder="hunter2 password") }}

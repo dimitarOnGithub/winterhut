@@ -13,7 +13,16 @@
       <fieldset>
         <h2>Ban an IP Address</h2>
         <div>
-          {{ form.ip_address(class="form-field ip-address", placeholder="Enter IP address here") }}
+          {% if form.ip_address.errors %}
+            {{ form.ip_address(class="form-field ip-address") }}
+            <div class="invalid-feedback">
+                {% for error in form.ip_address.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+          {% else %}
+            {{ form.ip_address(class="form-field ip-address", placeholder="Enter IP address here") }}
+          {% endif %}
         </div>
         <a class="btn" href="{{ url_for('main.home_page') }}">Cancel</a>
         <div>
