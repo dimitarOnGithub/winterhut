@@ -88,6 +88,7 @@ nav .nav-right {
     border-bottom: #CD9777;
     border-bottom-style: ridge;
     border-bottom-width: 1px;
+    line-height: 135%;
 }
 
 .article-title {
@@ -97,7 +98,9 @@ nav .nav-right {
 
 .article-date-posted {
     font-size: 18px;
-    text-align: right;
+    text-align: left;
+    margin-top: 2%;
+    margin-bottom: 3%;
     line-height: 20px;
     font-style: italic;
     display: block;
@@ -174,6 +177,7 @@ nav .nav-right {
 .paging {
   display: block;
   padding: 5px;
+  margin-top: 1%;
   overflow: hidden;
 }
 
@@ -234,7 +238,7 @@ nav .nav-right {
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #f8f8f8;
-  resize: both;
+  resize: vertical;
 }
 
 .new-post .btn {
@@ -245,4 +249,15 @@ nav .nav-right {
 .new-post a.btn {
   float: left;
   margin: 1% 0.5%;
+}
+
+.new-post .form-field.title {
+  height: 25px;
+  width: 100%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  margin: 1% 0;
 }

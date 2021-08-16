@@ -12,7 +12,7 @@
         {% for post in blog_posts.items %}
             <article class="blog-article">
                 <a class="article-title" href="{{ url_for('posts.view_post_page', post_id=post.id)}}">{{ post.title }}</a>
-                <small class="article-date-posted">{{ post.date_posted.strftime("%Y-%m-%d") }}</small>
+                <small class="article-date-posted">posted at {{ post.date_posted.strftime("%X, %A, %d/%b/%Y") }}</small>
                 <div class="article-content">{{ post.content | safe}}</div>
             </article>
         {% endfor %}
