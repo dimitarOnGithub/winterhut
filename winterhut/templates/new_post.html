@@ -18,11 +18,12 @@
         <div>
           {{ form.content(class="form-field content", placeholder="Post body") }}
         </div>
-        <div>
-          {{ form.save_as_draft(class="form-field btn") }}
-        </div>
+        <a class="btn" href="{{ url_for('main.home_page') }}">Cancel</a>
         <div>
           {{ form.submit(class="form-field btn") }}
+        </div>
+        <div>
+          {{ form.save_as_draft(class="form-field btn") }}
         </div>
       </fieldset>
     </form>

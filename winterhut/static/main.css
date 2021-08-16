@@ -236,3 +236,13 @@ nav .nav-right {
   background-color: #f8f8f8;
   resize: both;
 }
+
+.new-post .btn {
+  float: right;
+  margin: 1% 0.5%;
+}
+
+.new-post a.btn {
+  float: left;
+  margin: 1% 0.5%;
+}
