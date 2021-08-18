@@ -14,7 +14,8 @@ main = Blueprint('main', __name__)
 @main.route("/page/<int:page>")
 def home_page(page=1):
     page_from_url = page
-    posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page_from_url, per_page=1)
+    posts = Post.query.filter_by(is_draft=0).order_by(Post.date_posted.desc())\
+        .paginate(page=page_from_url, per_page=1)
     return render_template('home.html', title="Winter's Hut", blog_posts=posts, page_from_url=page_from_url)
 
 

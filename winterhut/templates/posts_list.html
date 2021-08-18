@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Winter's Hut
+    {% endif %}
+{% endblock %}
+{% block body %}
+  <div class="posts-view">
+    <h1>Posts</h1>
+    {% for post in posts %}
+    <article class="article-blob">
+        <small class="article-status"></small>
+        <a class="article-title" href="{{ url_for('posts.view_post_page', post_id=post.id)}}">{{ post.title }}</a>
+        <small class="article-date-posted">posted at {{ post.date_posted.strftime("%X, %A, %d/%b/%Y") }}</small>
+        <div class="article-content">{{ post.content | safe}}</div>
+    </article>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -228,6 +228,15 @@ nav .nav-right {
   text-align: center;
 }
 
+.invalid-feedback {
+  border: #CD9777;
+  border-style: ridge;
+  border-width: 1px;
+  padding: 1%;
+  margin: 1% 0%;
+  text-align: center;
+}
+
 /* new post page */
 
 .content {
@@ -260,4 +269,27 @@ nav .nav-right {
   border-radius: 4px;
   background-color: #f8f8f8;
   margin: 1% 0;
+}
+
+/* admin posts page */
+
+.content-section .posts-view {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 2px ridge #2A1913;
+  margin: 0.5%
+}
+
+.article-blob {
+  border: 2px solid #CD9777;
+  margin: 0.5%;
+}
+
+.article-blob .article-status {
+  font-size: 30px;
+}
+
+.article-blob .article-title {
+  font-size: 30px;
 }
