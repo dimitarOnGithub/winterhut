@@ -45,6 +45,33 @@ def view_post_page(post_id):
     return render_template('post.html', post=post)
 
 
+@posts.route("/post/<int:post_id>/edit", methods=['GET', 'POST'])
+def edit_post_page(post_id):
+    if not current_user.is_authenticated:
+        flash("You must be logged in to see this page.")
+        return redirect(url_for('users.login_page'))
+    post = Post.query.filter_by(id=post_id).first_or_404()
+    form = PostForm()
+    if form.validate_on_submit():
+        if form.save_as_draft.data:
+            post.title = form.title.data
+            post.content = form.content.data
+            post.is_draft = True
+            db.session.commit()
+            flash("Post saved as draft successfully.")
+        else:
+            post.title = form.title.data
+            post.content = form.content.data
+            post.is_draft = False
+            db.session.commit()
+            flash("Post created successfully.")
+        return redirect(url_for("posts.view_post_page", post_id=post.id))
+    elif request.method == "GET":
+        form.title.data = post.title
+        form.content.data = post.content
+    return render_template("edit_post.html", title="Edit Post", form=form)
+
+
 @posts.route("/posts_list")
 def posts_list_page():
     if not current_user.is_authenticated:

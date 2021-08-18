@@ -19,7 +19,7 @@ def home_page(page=1):
     return render_template('home.html', title="Winter's Hut", blog_posts=posts, page_from_url=page_from_url)
 
 
-@main.route("/cv")
+@main.route("/level80paladin")
 def cv_page():
     return render_template('cv.html')
 

@@ -341,3 +341,36 @@ nav .nav-right {
   display: inline-block;
   margin: 0.5%;
 }
+
+/* experience page */
+
+.cv-table {
+  padding: 5% 15%;
+}
+
+.cv-entry {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  margin: 2% 0%;
+}
+
+.cv-entry .cv-entry-title {
+  margin: 0 0;
+}
+
+.cv-entry .cv-entry-company {
+  margin: 0.3% 0;
+}
+
+.cv-entry .cv-entry-timespan {
+  margin: 0.3% 0;
+}
+
+.cv-entry-infoblock {
+  min-width: 50%;
+}
+
+.cv-entry-summaryblock {
+  min-width: 50%;
+}

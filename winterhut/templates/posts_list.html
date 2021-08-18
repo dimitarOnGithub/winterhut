@@ -15,7 +15,7 @@
     <article class="article-blob">
       <a class="article-title" href="{{ url_for('posts.view_post_page', post_id=post.id)}}">{{ post.title }}</a>
       <div class="article-options">
-        <a class="btn" href="#">Edit</a>
+        <a class="btn" href="{{ url_for('posts.edit_post_page', post_id=post.id)}}">Edit</a>
       </div>
       {% if post.is_draft == 1 %}
         <small class="article-status">Status: Draft</small>
