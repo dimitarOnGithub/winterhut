@@ -7,14 +7,24 @@
     {% endif %}
 {% endblock %}
 {% block body %}
+  <a class="btn" href="?view=all">All Posts</a>
+  <a class="btn" href="?view=drafts">Drafts</a>
+  <a class="btn" href="?view=live">Live Posts</a>
   <div class="posts-view">
-    <h1>Posts</h1>
     {% for post in posts %}
     <article class="article-blob">
-        <small class="article-status"></small>
-        <a class="article-title" href="{{ url_for('posts.view_post_page', post_id=post.id)}}">{{ post.title }}</a>
+      <a class="article-title" href="{{ url_for('posts.view_post_page', post_id=post.id)}}">{{ post.title }}</a>
+      <div class="article-options">
+        <a class="btn" href="#">Edit</a>
+      </div>
+      {% if post.is_draft == 1 %}
+        <small class="article-status">Status: Draft</small>
+        <small class="article-date-posted">last updated at {{ post.date_posted.strftime("%X, %A, %d/%b/%Y") }}</small>
+      {% else %}
+        <small class="article-status">Status: Posted</small>
         <small class="article-date-posted">posted at {{ post.date_posted.strftime("%X, %A, %d/%b/%Y") }}</small>
-        <div class="article-content">{{ post.content | safe}}</div>
+      {% endif %}
+      <div class="article-content">{{ post.content | safe}}</div>
     </article>
     {% endfor %}
   </div>

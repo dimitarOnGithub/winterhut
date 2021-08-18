@@ -36,7 +36,12 @@ def new_post_page():
 
 @posts.route("/post/<int:post_id>")
 def view_post_page(post_id):
-    post = Post.query.filter_by(id=post_id, is_draft=0).first_or_404()
+    if current_user.is_authenticated:
+        post = Post.query.filter_by(id=post_id).first_or_404()
+        if post.is_draft == 1:
+            flash("You are viewing a draft post.")
+    else:
+        post = Post.query.filter_by(id=post_id, is_draft=0).first_or_404()
     return render_template('post.html', post=post)
 
 
@@ -45,5 +50,14 @@ def posts_list_page():
     if not current_user.is_authenticated:
         flash("You must be logged in to see this page.")
         return redirect(url_for('users.login_page'))
-    all_posts = Post.query.order_by(Post.date_posted.desc())
+    view_filter = request.args.get('view', default="all", type=str)
+    if view_filter == "all":
+        all_posts = Post.query.order_by(Post.date_posted.desc())
+    elif view_filter == "drafts":
+        all_posts = Post.query.filter_by(is_draft=1).order_by(Post.date_posted.desc())
+    elif view_filter == "live":
+        all_posts = Post.query.filter_by(is_draft=0).order_by(Post.date_posted.desc())
+    else:
+        flash(f"Unknown URL parameter: {view_filter}")
+        return redirect(url_for("posts.posts_list_page"))
     return render_template('posts_list.html', posts=all_posts)

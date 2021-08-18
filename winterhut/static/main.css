@@ -108,6 +108,17 @@ nav .nav-right {
 
 .article-content {
   white-space: pre-wrap;
+  line-height: 140%;
+  font-size: 120%;
+}
+
+.blog-article .article-options {
+  margin-top: 2%;
+  overflow: hidden;
+}
+
+.blog-article .btn {
+  float: right;
 }
 
 /* Author */
@@ -273,26 +284,51 @@ nav .nav-right {
 
 /* admin posts page */
 
+.content-section .btn {
+  margin: 0.5%;
+}
+
 .content-section .posts-view {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  border: 2px ridge #2A1913;
+  border: 2px ridge #8A5A44;
   margin: 0.5%
 }
 
 .article-blob {
   border: 2px solid #CD9777;
   margin: 0.5%;
+  padding: 1%;
 }
 
 .article-blob .article-status {
-  font-size: 30px;
+  font-size: 22px;
+  display: inline;
+  float: right;
+  margin: 1% 1% 0 0;
 }
 
 .article-blob .article-title {
   font-size: 30px;
 }
+
+.article-blob .article-date-posted {
+  margin: 1% 0;
+}
+
+
+.article-blob .article-content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 1.5%;
+}
+
+.article-blob .article-options {
+  float: right;
+}
+
 
 /* ban ip page */
 #ip_address {
