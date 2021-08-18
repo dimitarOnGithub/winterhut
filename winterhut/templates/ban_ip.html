@@ -12,21 +12,19 @@
       {{ form.hidden_tag() }}
       <fieldset>
         <h2>Ban an IP Address</h2>
-        <div>
-          {% if form.ip_address.errors %}
-            {{ form.ip_address(class="form-field ip-address") }}
-            <div class="invalid-feedback">
-                {% for error in form.ip_address.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-          {% else %}
-            {{ form.ip_address(class="form-field ip-address", placeholder="Enter IP address here") }}
-          {% endif %}
-        </div>
+        {% if form.ip_address.errors %}
+          {{ form.ip_address(class="form-field ip-address") }}
+          <div class="invalid-feedback">
+              {% for error in form.ip_address.errors %}
+                  <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+        {% else %}
+          {{ form.ip_address(class="form-field ip-address", placeholder="Enter IP address here") }}
+        {% endif %}
+        <div class="options">
         <a class="btn" href="{{ url_for('main.home_page') }}">Cancel</a>
-        <div>
-          {{ form.submit(class="form-field btn") }}
+        {{ form.submit(class="form-field btn") }}
         </div>
       </fieldset>
     </form>

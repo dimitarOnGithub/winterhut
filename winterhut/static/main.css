@@ -293,3 +293,15 @@ nav .nav-right {
 .article-blob .article-title {
   font-size: 30px;
 }
+
+/* ban ip page */
+#ip_address {
+  width: 20%;
+  font-size: 150%;
+  margin: 0.5%;
+}
+
+.new-ban .btn {
+  display: inline-block;
+  margin: 0.5%;
+}
