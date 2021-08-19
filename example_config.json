@@ -1,0 +1,12 @@
+{
+  "SECRET_KEY": "<app_secret_key>",
+  "FLASK_APP": "winterhut",
+  "FLASK_ENV": "development",
+  "DEBUG": "True",
+  "SQLALCHEMY_DATABASE_URI": "mysql+pymysql://<username>:<password>@<server>/<database_name>",
+  "MAIL_SERVER": "<smtp_server_url>",
+  "MAIL_USE_TLS": 1,
+  "MAIL_USERNAME": "<google_username>",
+  "MAIL_PASSWORD": "<google_password>",
+  "MAIL_DEBUG": 1
+}
