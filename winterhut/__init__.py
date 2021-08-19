@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
@@ -13,10 +14,12 @@ login_manager.login_message_category = 'info'
 mail = Mail()
 
 
-def create_app(config=None):
+def create_app():
     app = Flask(__name__)
-    if config:
-        app.config.from_file(config, load=json.load)
+    conf_path = os.environ.get("APP_CONFIG_PATH")
+    if not conf_path:
+        raise ValueError("No 'APP_CONFIG_PATH' environmental value defined to use as configration file.")
+    app.config.from_file(conf_path, load=json.load)
 
     db.init_app(app)
     bcrypt.init_app(app)
