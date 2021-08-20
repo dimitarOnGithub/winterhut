@@ -11,8 +11,10 @@
       <a class="article-title">{{ post.title }}</a>
       <small class="article-date-posted">posted at {{ post.date_posted.strftime("%X, %A, %d/%b/%Y") }}</small>
       <div class="article-content">{{ post.content | safe }}</div>
-      <div class="article-options">
-        <a class="btn" href="#">Edit</a>
-      </div>
+      {% if current_user.is_authenticated %}
+          <div class="article-options">
+            <a class="btn" href="#">Edit</a>
+          </div>
+      {% endif %}
   </article>
 {% endblock %}
