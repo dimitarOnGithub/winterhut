@@ -88,3 +88,9 @@ def posts_list_page():
         flash(f"Unknown URL parameter: {view_filter}")
         return redirect(url_for("posts.posts_list_page"))
     return render_template('posts_list.html', posts=all_posts)
+
+
+@posts.route("/all_posts")
+def all_posts_page():
+    all_posts = Post.query.order_by(Post.date_posted.desc())
+    return render_template('all_blog_posts.html', posts=all_posts)

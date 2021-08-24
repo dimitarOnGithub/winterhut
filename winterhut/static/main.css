@@ -374,3 +374,47 @@ nav .nav-right {
 .cv-entry-summaryblock {
   min-width: 50%;
 }
+
+
+/* all posts page */
+
+.all-posts-page {
+  padding: 1%;
+}
+
+
+.all-posts-page .all-posts-view {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  align-content: start;
+  grid-gap: 2% 1%;
+  justify-content: space-around;
+}
+
+.all-posts-view .post-wrapper {
+  background: #623B2D;
+  padding: 35px;
+  border: #CD9777;
+  border-style: ridge;
+  border-width: 1px;
+  text-decoration: none;
+}
+
+.all-posts-view .post-wrapper:hover {
+  background-color: #8A5A44;
+  transition-duration: 0.4s;
+}
+
+.post-wrapper .post-title {
+  font-size: 150%;
+}
+
+.post-wrapper .post-date {
+  font-style: italic;
+}
+
+.post-wrapper .post-content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
