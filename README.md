@@ -35,5 +35,5 @@ pyenv local 3.9.2
 
 Install Flask and its dependencies 
 ```bash
-pip3 install flask wtforms flask-bcrypt flask-login flask_mail flask-sqlalchemy email_validator
+pip3 install flask flask_wtf flask-bcrypt flask-login flask_mail pymsql flask-sqlalchemy email_validator
 ```
