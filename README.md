@@ -13,6 +13,27 @@ prep() {
 ```
 
 Dependencies
+CentOS 8:
+```bash
+yum groupinstall "Development Tools"
+yum install libffi-devel zlib zlib-devel bzip2-devel openssl-devel sqlite-devel readline-devel
+```
+After the installation fo libffi-devel, we need to load the new libffi.so
+```bash
+ldconfig
+```
+
+Install PyENV as per https://github.com/pyenv/pyenv#installation
+Install Python 3.9.2
+```bash
+pyenv install 3.9.2
+```
+Set it as local version for the project
+```bash
+pyenv local 3.9.2
+```
+
+Install Flask and its dependencies 
 ```bash
 pip3 install <list later lol>
 ```
