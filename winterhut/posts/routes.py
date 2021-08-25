@@ -92,5 +92,5 @@ def posts_list_page():
 
 @posts.route("/all_posts")
 def all_posts_page():
-    all_posts = Post.query.order_by(Post.date_posted.desc())
+    all_posts = Post.query.filter_by(is_draft=0).order_by(Post.date_posted.desc())
     return render_template('all_blog_posts.html', posts=all_posts)
