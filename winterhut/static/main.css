@@ -9,6 +9,11 @@ a {
     color: #e6ccb2;
 }
 
+h1, h2, h3, h4 {
+  margin-top: 0;
+  margin-bottom: 0.5%;
+}
+
 .btn {
   color: #e6ccb2;
   background: #462A20;
@@ -76,23 +81,13 @@ nav .nav-right {
     margin: 5px;
     padding: 35px;
     box-shadow: 5px 10px 10px #9D6B53;
-    border-top: #CD9777;
-    border-top-style: ridge;
-    border-top-width: 1px;
-    border-left: #CD9777;
-    border-left-style: ridge;
-    border-left-width: 1px;
-    border-right: #CD9777;
-    border-right-style: ridge;
-    border-right-width: 1px;
-    border-bottom: #CD9777;
-    border-bottom-style: ridge;
-    border-bottom-width: 1px;
+    border: 1px ridge #CD9777;
     line-height: 135%;
 }
 
 .article-title {
     font-size: 40px;
+    font-family: 'Merienda', cursive;
     font-style: italic;
 }
 
@@ -110,6 +105,11 @@ nav .nav-right {
   white-space: pre-wrap;
   line-height: 140%;
   font-size: 120%;
+}
+
+.article-content ul {
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-article .article-options {
@@ -132,18 +132,7 @@ nav .nav-right {
     margin: 5px;
     margin-right: 10px;
     box-shadow: 5px 10px 10px #9D6B53;
-    border-top: #CD9777;
-    border-top-style: ridge;
-    border-top-width: 1px;
-    border-left: #CD9777;
-    border-left-style: ridge;
-    border-left-width: 1px;
-    border-right: #CD9777;
-    border-right-style: ridge;
-    border-right-width: 1px;
-    border-bottom: #CD9777;
-    border-bottom-style: ridge;
-    border-bottom-width: 1px;
+    border: 1px ridge #CD9777;
 }
 
 .author-section ul {
@@ -181,7 +170,6 @@ nav .nav-right {
 .author-socials {
   font-family: 'Merienda', cursive;
   font-size: 40px;
-  word-break: break-all;
 }
 
 /* Pagination */
@@ -407,6 +395,7 @@ nav .nav-right {
 
 .post-wrapper .post-title {
   font-size: 150%;
+  font-family: 'Merienda', cursive;
 }
 
 .post-wrapper .post-date {
