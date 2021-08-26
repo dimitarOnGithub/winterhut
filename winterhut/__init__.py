@@ -4,6 +4,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.middleware.proxy_fix import ProxyFix
 import json
 
 db = SQLAlchemy()
@@ -20,6 +21,7 @@ def create_app():
     if not conf_path:
         raise ValueError("No 'APP_CONFIG_PATH' environmental value defined to use as configration file.")
     app.config.from_file(conf_path, load=json.load)
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_host=1)
 
     db.init_app(app)
     bcrypt.init_app(app)

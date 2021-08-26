@@ -16,7 +16,7 @@ users = Blueprint('users', __name__)
 def login_page():
     if current_user.is_authenticated:
         return redirect(url_for('main.home_page'))
-    ip_address = request.remote_addr
+    ip_address = request.access_route[0]
     ip_of_visitor = IpBan.query.filter_by(ip=ip_address).first()
     if ip_of_visitor:
         if ip_of_visitor.login_attempts >= 5:
@@ -47,7 +47,7 @@ def login_page():
 def log_me_in_page(token):
     if current_user.is_authenticated:
         return redirect(url_for('main.home_page'))
-    ip_address = request.remote_addr
+    ip_address = request.access_route[0]
     ip_of_visitor = IpBan.query.filter_by(ip=ip_address).first()
     if ip_of_visitor:
         if ip_of_visitor.login_attempts >= 5:
