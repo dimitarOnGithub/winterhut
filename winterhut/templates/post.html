@@ -13,7 +13,7 @@
       <div class="article-content">{{ post.content | safe }}</div>
       {% if current_user.is_authenticated %}
           <div class="article-options">
-            <a class="btn" href="#">Edit</a>
+            <a class="btn" href="{{ url_for('posts.edit_post_page', post_id=post.id)}}">Edit</a>
           </div>
       {% endif %}
   </article>
