@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Winter's Hut
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="importer_data">
+  <div class="all-posts-page">
+    <div class="all-posts-view">
+  {% for post in data %}
+      <a class="post-wrapper" href="{{ url_for('main.preview_post_page', post=post.dump_as_json()) }}">
+        <div class="post-title">
+          {{ post.title }}
+        </div>
+        <div class="post-date">
+          {{ post.date_posted.strftime("%b, %Y") }}
+        </div>
+    </a>
+  {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -13,3 +13,22 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+    def dump_as_json(self):
+        return {
+            "id": f"{self.id}",
+            "title": f"{self.title}",
+            "date_posted": f"{self.date_posted.isoformat()}",
+            "content": f"{self.content}",
+            "is_draft": f"{self.is_draft}",
+            "user_id": f"{self.user_id}"
+        }
+
+    def load_from_json(self, json):
+        print(json)
+        self.id = json.get('id')
+        self.title = json.get('title')
+        self.date_posted = datetime.fromisoformat(json.get('date_posted'))
+        self.content = json.get('content')
+        self.is_draft = json.get('is_draft')
+        self.user_id = json.get('user_id')

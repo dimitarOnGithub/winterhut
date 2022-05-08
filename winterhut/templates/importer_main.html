@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}
+    {% if title %}
+        {{ title }}
+    {% else %}
+        Winter's Hut
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="importer_main">
+  <form method="POST" action="" enctype=multipart/form-data>
+    {{ form.hidden_tag() }}
+    <fieldset>
+      <input type = "file" name = "file" />
+      {{ form.submit(class="form-field btn") }}
+    </fieldset>
+  </form>
+</div>
+{% endblock %}
