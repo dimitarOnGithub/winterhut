@@ -9,9 +9,10 @@
 {% block body %}
 <div class="importer_data">
   <div class="all-posts-page">
+      <h4>Reading data from file: {{ file_path }}</h4>
     <div class="all-posts-view">
   {% for post in data %}
-      <a class="post-wrapper" href="{{ url_for('main.preview_post_page', post=post.dump_as_json()) }}">
+      <a class="post-wrapper" href="{{ url_for('main.preview_post_page', post_id=post.json_id, file_path=file_path) }}">
         <div class="post-title">
           {{ post.title }}
         </div>
@@ -22,5 +23,8 @@
   {% endfor %}
     </div>
   </div>
+    <br>
+    <br>
+    <a class="btn" href="{{ url_for( 'main.import_data', file_path=file_path ) }}">Import</a>
 </div>
 {% endblock %}

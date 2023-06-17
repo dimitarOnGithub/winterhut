@@ -60,14 +60,15 @@ def importer_page():
     if form.validate_on_submit():
         uploaded_file = request.files['file']
         uploaded_file.save(os.path.join('winterhut/static/', uploaded_file.filename))
-        return redirect(url_for('main.importer_data_page', file=f"winterhut/static/{uploaded_file.filename}"))
+        return redirect(url_for('main.importer_data_page', file=f"{uploaded_file.filename}"))
     return render_template('importer_main.html', form=form)
 
 
 @main.route("/importer_data", methods=["GET", "POST"])
 def importer_data_page():
     file = request.args['file']
-    file = open(file)
+    file_path = os.path.join("winterhut", "static", file)
+    file = open(file_path)
     importer = Importer(file)
     json_data = importer.load_file_content()
     articles = json_data.get('articles')
@@ -79,15 +80,44 @@ def importer_data_page():
         article_post.date_posted = datetime.fromisoformat(article_data.get('published_date'))
         article_post.is_draft = 1
         article_post.user_id = 1
+        setattr(article_post, "json_id", article_id)
         prepared_articles.append(article_post)
-    return render_template('importer_data.html', data=prepared_articles)
+    return render_template('importer_data.html', data=prepared_articles, file_path=file_path)
 
 
 @main.route("/preview")
 def preview_post_page():
-    p = request.args['post']
-    print(p)
-    json_payload = ast.literal_eval(p)
-    post = Post()
-    post.load_from_json(json_payload)
-    return render_template('post.html', post=post, preview=1)
+    post_id = request.args['post_id']
+    file_path = request.args['file_path']
+    file = open(file_path)
+    importer = Importer(file)
+    json_data = importer.load_file_content()
+    articles = json_data.get('articles')
+    for article_id, article_data in articles.items():
+        if article_id == post_id:
+            article_post = Post()
+            article_post.title = article_data.get('title')
+            article_post.content = article_data.get('content')
+            article_post.date_posted = datetime.fromisoformat(article_data.get('published_date'))
+            article_post.is_draft = 1
+            article_post.user_id = 1
+    return render_template('post.html', post=article_post, preview=1)
+
+
+@main.route("/import")
+def import_data():
+    file_path = request.args['file_path']
+    file = open(file_path)
+    importer = Importer(file)
+    json_data = importer.load_file_content()
+    articles = json_data.get('articles')
+    for article_id, article_data in articles.items():
+        article_post = Post()
+        article_post.title = article_data.get('title')
+        article_post.content = article_data.get('content')
+        article_post.date_posted = datetime.fromisoformat(article_data.get('published_date'))
+        article_post.is_draft = 1
+        article_post.user_id = 1
+        db.session.add(article_post)
+        db.session.commit()
+    return redirect(url_for('posts.posts_list_page'))
